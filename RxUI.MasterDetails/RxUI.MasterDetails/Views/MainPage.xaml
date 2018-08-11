@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rUI:ReactiveMasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:vms="clr-namespace:RxUI.MasterDetails.ViewModels"
+            xmlns:views="clr-namespace:RxUI.MasterDetails.Views"
+            xmlns:rUI="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+            x:Class="RxUI.MasterDetails.Views.MainPage"
+            x:TypeArguments="vms:MainPageViewModel">
+    <MasterDetailPage.Master>
+        <!-- have to set the title property of the masters content page, otherwise
+         you will get an exception. -->
+        <ContentPage Title="Master">
+            <StackLayout Orientation="Vertical">
+                <Label Text="Detail 1" Font="Large" HorizontalOptions="End" TextColor="Silver" />
+                <Label Text="Detail 2" Font="Large" HorizontalOptions="End" TextColor="Silver" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:Details1Page></views:Details1Page>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</rUI:ReactiveMasterDetailPage>
